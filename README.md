@@ -192,7 +192,7 @@ python manage.py loaddata {fixture file path}
 This portfolio demonstrates my ability to create a sample WEB application from scratch and shows that I have <br>
 sufficient coding experience.<br>
 There are no documents in this project which are usually required in system development method (documents of <br>
-function design, unit test, coding rules, etc.) as the format and quidelines differ, depending on teams.<br>
+function design, unit test, coding rules, etc.) as the format and guidelines differ, depending on teams.<br>
 
 ## Author
 
