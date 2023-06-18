@@ -1,0 +1,27 @@
+{# ===== Import ===== #}
+{% extends "base.html" %}
+{% load static %}
+{% load const_value_tag %}
+{% load crispy_forms_tags %}
+{# ========== #}
+
+{# ***** Override title ***** #}
+{% block title %}MRSS Search{% endblock %}
+{# ********** #}
+
+{# ***** Override content ***** #}
+{% block content %}
+<script src="{% static 'mainapp/js/report_search.js' %}"></script>
+
+<h1>Search Reports</h1>
+<div class="ms-4 mt-4">
+  <!-- ===== Search Conditon ===== -->
+  <h2 style="font-size:20px">Search Condition</h2>
+  {% crispy form %}
+  <!-- ===== ./Search Conditon ===== -->
+  <!-- ===== Search Result ===== -->
+  {% include 'mainapp/fragments/report_search_result.html' %}
+  <!-- ===== ./Search Result ===== -->
+</div>
+{% endblock %}
+{# ********** #}

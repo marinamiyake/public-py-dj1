@@ -1,0 +1,95 @@
+<!-- ===== Page navigation ===== -->
+{% load pagination_tag %}
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+    {# First page #}
+    <li class="page-item">
+      <a class="page-link" href="?{% url_replace request 'page' 1 %}">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    {# Previous page #}
+    <li class="page-item">
+      <a class="page-link" href="?{% url_replace request 'page' page_obj.previous_page_number %}">
+        <span aria-hidden="true">&lsaquo;</span>
+      </a>
+    </li>
+    {% else %}
+    {# Hide first and previous pages #}
+    <li class="page-item disabled">
+      <a class="page-link" href="#">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item disabled">
+      <a class="page-link" href="#">
+        <span aria-hidden="true">&lsaquo;</span>
+      </a>
+    </li>
+    {% endif %}
+
+    {# If there are over 4 pages before current page, add '&hellip;' icon with the link of 5 pages before #}
+    {% if page_obj.number|add:'-4' > 1 %}
+    <li class="page-item">
+      {% with page_obj.number|add:'-5' as current_minus_5 %}
+      <a class="page-link" href="?{% url_replace request 'page' current_minus_5 %}">
+        <span aria-hidden="true">&hellip;</span>
+      </a>
+      {% endwith %}
+    </li>
+    {% endif %}
+
+    {% for i in page_obj.paginator.page_range %}
+    {# Only show current page and 1-4 pages before/after link #}
+    {% if page_obj.number == i %}
+    <li class="page-item active" aria-current="page">
+      <a class="page-link" href="?{% url_replace request 'page' page_obj.number %}">{{ page_obj.number }}</a>
+    </li>
+    {% elif i > page_obj.number|add:'-5' and i < page_obj.number|add:'5' %}
+    <li class="page-item">
+      <a class="page-link" href="?{% url_replace request 'page' i %}">{{ i }}</a>
+    </li>
+    {% else %}
+    {% endif %}
+    {% endfor %}
+
+    {# If there are over 4 pages after current page, add '&hellip;' icon with the link of 5 pages after #}
+    {% if page_obj.paginator.num_pages > page_obj.number|add:'4' %}
+    <li class="page-item">
+      {% with page_obj.number|add:'5' as current_plus_5 %}
+      <a class="page-link" href="?{% url_replace request 'page' current_plus_5 %}">
+        <span aria-hidden="true">&hellip;</span>
+      </a>
+      {% endwith %}
+    </li>
+    {% endif %}
+
+    {% if page_obj.has_next %}
+    {# Next page #}
+    <li class="page-item">
+      <a class="page-link" href="?{% url_replace request 'page' page_obj.next_page_number %}">
+        <span aria-hidden="true">&rsaquo;</span>
+      </a>
+    </li>
+    {# Lase page #}
+    <li class="page-item">
+      <a class="page-link" href="?{% url_replace request 'page' page_obj.paginator.num_pages %}">&raquo;</a>
+    </li>
+    {% else %}
+    {# Hide next and last pages #}
+    <li class="page-item disabled">
+      <a class="page-link" href="#">
+        <span aria-hidden="true">&rsaquo;</span>
+      </a>
+    </li>
+    <li class="page-item disabled">
+      <a class="page-link" href="#">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>
+<span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+<!-- ===== ./Page navigation ===== -->

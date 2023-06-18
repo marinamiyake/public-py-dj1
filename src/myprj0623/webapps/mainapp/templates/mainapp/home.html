@@ -1,0 +1,34 @@
+{# ===== Import ===== #}
+{% extends "base.html" %}
+{% load static %}
+{# ========== #}
+
+{# ***** Override title ***** #}
+{% block title %}mainapp TOP{% endblock %}
+{# ********** #}
+
+{# ***** Override content ***** #}
+{% block content %}
+<div>
+  <div class="text-center">
+    <p class="m-4" style="font-size:30px;">
+      <img src="{% static 'mainapp/images/irasutoya_tatemono_jutakugai.png' %}" width="40px" height="35px"
+           alt='residences image'/>
+      Find best area to live in!
+      <img src="{% static 'mainapp/images/irasutoya_tatemono_jutakugai.png' %}" width="40px" height="35px"
+           alt='residences image'/>
+    </p>
+    <a class="btn m-4" href="{% url 'mainapp:report_search' %}" role="button"
+       style="width:200px;height:200px;background-color:powderblue;">
+      <i class="bi bi-search" style="font-size:100px"></i>
+      <p> Search Reports </p>
+    </a>
+    <a class="btn m-4" href="{% url 'mainapp:report_create' %}" role="button"
+       style="width:200px;height:200px;background-color:mediumaquamarine;">
+      <i class="bi bi-pencil-square" style="font-size:100px;"></i>
+      <p> Write a Report </p>
+    </a>
+  </div>
+</div>
+{% endblock %}
+{# ********** #}
