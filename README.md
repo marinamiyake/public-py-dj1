@@ -178,8 +178,9 @@ python manage.py loaddata {fixture file path}
     (Move mouse cursor to manage.py in PyCharm and right click, then you'll see the "Run" button. <br>
     After you run it once, open Run Configurations window in PyCharm, add parameter "runserver 127.0.0.1:8000" <br>
     and run again.)<br>
-15. Access Email Addresses Home in DjangoAdmin (http://127.0.0.1:8000/admin/account/emailaddress/) and tick both <br>
-    verify and primary flags. Now you have an admin account for this project.
+15. Access Email Addresses Home in DjangoAdmin (http://127.0.0.1:8000/admin/account/emailaddress/) and create a new <br>
+    record for admin email address (tick both verify and primary flags). <br>
+    Now you have an admin account for this project.
 16. Go to any page of the mainapp (http://127.0.0.1:8000/mainapp/{any page}/) and Sign out.
 17. From the redirected welcome page, click "Sign up" and enter email and password to create your standard user <br>
     (basic permissions).
