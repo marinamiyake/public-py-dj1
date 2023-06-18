@@ -1,0 +1,61 @@
+{# ===== Import ===== #}
+{% load const_value_tag %}
+{# ========== #}
+<div class="ms-4 mt-4">
+  <h2 style="font-size:20px">Search Result ({{ page_obj.paginator.count }})</h2>
+  <table class="table table-bordered">
+    <thead class="table-dark">
+    <tr>
+      {% get_const_value "TMP_LIST_NO_TABLE_HEADER_NAME" as TMP_LIST_NO_TABLE_HEADER_NAME %}
+      {% get_const_value "REPORT_ID_DISPLAY_NAME" as REPORT_ID_DISPLAY_NAME %}
+      {% get_const_value "PROBLEM_HAPPENED_DATE_VERBOSE_NAME" as PROBLEM_HAPPENED_DATE_VERBOSE_NAME %}
+      {% get_const_value "POSTCODE_VERBOSE_NAME" as POSTCODE_VERBOSE_NAME %}
+      {% get_const_value "TOWN_CITY_BOROUGH_NAME" as TOWN_CITY_BOROUGH_NAME %}
+      {% get_const_value "NEAREST_STATION_VERBOSE_NAME" as NEAREST_STATION_VERBOSE_NAME %}
+      {% get_const_value "PROBLEM_TYPE_VERBOSE_NAME" as PROBLEM_TYPE_VERBOSE_NAME %}
+      {% get_const_value "TITLE_VERBOSE_NAME" as TITLE_VERBOSE_NAME %}
+      <th scope="col">{{ TMP_LIST_NO_TABLE_HEADER_NAME }}</th>
+      <th scope="col">{{ PROBLEM_HAPPENED_DATE_VERBOSE_NAME }}</th>
+      <th scope="col">{{ REPORT_ID_DISPLAY_NAME }}</th>
+      <th scope="col">{{ POSTCODE_VERBOSE_NAME }}</th>
+      <th scope="col">{{ TOWN_CITY_BOROUGH_NAME }}</th>
+      <th scope="col">{{ NEAREST_STATION_VERBOSE_NAME }}</th>
+      <th scope="col">{{ PROBLEM_TYPE_VERBOSE_NAME }}</th>
+      <th scope="col">{{ TITLE_VERBOSE_NAME }}</th>
+      {% if request.user.is_superuser %}
+      <th scope="col">Admin Functions</th>
+      {% endif %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for report in search_result %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ report.problem_happened_date }}</td>
+      <td><a href="{% url 'mainapp:report_detail' report.id %}" target="_blank">{{ report.id }}</a></td>
+      <td>{{ report.postcode }}</td>
+      <td>{{ report.town_city_borough_name.value }}</td>
+      <td>
+        {% get_heavy_db_const_fields_disp_name "STATION_LONDON_OPTION_LIST_DISP_DICT" report.nearest_station as nearest_station_name %}
+        {{ nearest_station_name }}
+      </td>
+      <td>{{ report.get_problem_type_display }}</td>
+      <td>{{ report.title }}</td>
+      {% if request.user.is_superuser %}
+      <td>
+        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                data-bs-target="#reportDeleteModal-{{ report.id }}">
+          Delete
+        </button>
+        <a class="btn btn-primary btn-sm" href="/admin/mainapp/report/{{ report.id }}/change/" target="_blank" role="button">
+          Edit in DjangoAdmin
+        </a>
+      </td>
+      {% include 'mainapp/fragments/modal_report_delete.html' with report_id=report.id %}
+      {% endif %}
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% include "page_navigation.html" %}
+</div>

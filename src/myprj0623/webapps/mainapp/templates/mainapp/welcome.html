@@ -1,0 +1,30 @@
+{# ===== Import ===== #}
+{% extends "base.html" %}
+{% load const_value_tag %}
+{# ========== #}
+
+{# ***** Override title ***** #}
+{% block title %}Welcome!{% endblock %}
+{# ********** #}
+
+{# ***** Override content ***** #}
+{% block content %}
+<div>
+  <div class="text-center">
+    <p class="m-4" style="font-size:30px;"> Welcome! </p>
+    <p style="font-size:17px;"> Search / create problem reports of your local area in the UK. </p>
+    <a class="btn m-4" href="{% url 'account_login' %}" role="button"
+       style="width:200px;height:200px;background-color:powderblue;">
+      <i class="bi bi-person-circle" style="font-size:100px"></i>
+      <p> Login </p>
+    </a>
+    <a class="btn m-4" href="{% url 'account_signup' %}" role="button"
+       style="width:200px;height:200px;background-color:mediumaquamarine">
+      <i class="bi bi-person-plus" style="font-size:100px;"></i>
+      <p> Sign up </p>
+    </a>
+    <p style="font-size:17px;">To use our system, please sign up for free!</p>
+  </div>
+</div>
+{% endblock %}
+{# ********** #}

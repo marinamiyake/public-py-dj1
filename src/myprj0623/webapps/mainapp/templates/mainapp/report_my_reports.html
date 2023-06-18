@@ -1,0 +1,15 @@
+{# ===== Import ===== #}
+{% extends "base.html" %}
+{% load const_value_tag %}
+{# ========== #}
+
+{# ***** Override title ***** #}
+{% block title %}MRSS My Reports{% endblock %}
+{# ********** #}
+
+{# ***** Override content ***** #}
+{% block content %}
+<h1>My Reports</h1>
+{% include 'mainapp/fragments/report_search_result.html' %}
+{% endblock %}
+{# ********** #}
