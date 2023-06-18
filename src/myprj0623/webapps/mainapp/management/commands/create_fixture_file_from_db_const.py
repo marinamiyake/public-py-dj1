@@ -56,10 +56,7 @@ class Command(BaseCommand):
                         '    }\n' + \
                         const.INDENT_HALF_STR + const.DICT_END_STR + modified_comma + const.NEW_LINE_STR
                     f.write(json_record)
-                print(
-                    str(len(db_const_list)) + " record(s) data of " + db_const_table_name_for_fixture +
-                    " table has written"
-                )
+                print(db_const_table_name_for_fixture + ": " + str(len(db_const_list)) + " record(s)")
             f.write(const.LIST_END_STR + const.NEW_LINE_STR)
             f.close()
         print('FINISHED: Fixture file created to "' + path + const.DOUBLE_QUOTE_STR)
