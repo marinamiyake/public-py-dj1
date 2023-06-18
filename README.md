@@ -130,8 +130,7 @@ See "myprj0623 > requirements.txt"
 3. Get clone URL, enter the URL into PyCharm's modal, also select your local directory, and "Apply."
 4. Copy "src/myprj0623/.env_local" and create ".env" to the same directory.
 5. Open terminal in your PyCharm.
-6. Install Django and all libraries in [Requirement](#Requirement) with the <br>
-   following commands:
+6. Install Django and all libraries in [Requirement](#Requirement) with the following commands:
 
 ```bash
 pip install Django==4.1.3
@@ -178,8 +177,9 @@ python manage.py loaddata {fixture file path}
     (Move mouse cursor to manage.py in PyCharm and right click, then you'll see the "Run" button. <br>
     After you run it once, open Run Configurations window in PyCharm, add parameter "runserver 127.0.0.1:8000" <br>
     and run again.)<br>
-15. Access Email Addresses Home in DjangoAdmin (http://127.0.0.1:8000/admin/account/emailaddress/) and tick both <br>
-    verify and primary flags. Now you have an admin account for this project.
+15. Access Email Addresses Home in DjangoAdmin (http://127.0.0.1:8000/admin/account/emailaddress/) and create a new <br>
+    record for admin email address (tick both verify and primary flags). <br>
+    Now you have an admin account for this project.
 16. Go to any page of the mainapp (http://127.0.0.1:8000/mainapp/{any page}/) and Sign out.
 17. From the redirected welcome page, click "Sign up" and enter email and password to create your standard user <br>
     (basic permissions).

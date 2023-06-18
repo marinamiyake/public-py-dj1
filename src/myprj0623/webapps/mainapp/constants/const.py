@@ -1,0 +1,187 @@
+"""
+Common constants for mainapp
+"""
+from . import db_const
+
+MAIN_APP_NAME = 'mainapp'
+
+PAGINATION_MAX = 100
+
+CHOICE_UNSELECTED_LABEL = "---------"
+CHOICE_UNSELECTED_LIST = [("", CHOICE_UNSELECTED_LABEL)]
+
+NEW_LINE_STR = "\n"
+INDENT_STR = "    "
+INDENT_HALF_STR = "  "
+SINGLE_QUOTE_STR = "'"
+DOUBLE_QUOTE_STR = '"'
+PERIOD_STR = "."
+SPACE_STR = " "
+COMMA_STR = ","
+EQUAL_STR = "="
+LIST_START_STR = '['
+LIST_END_STR = ']'
+TUPLE_START_STR = '('
+TUPLE_END_STR = ')'
+DICT_START_STR = '{'
+DICT_END_STR = '}'
+UNDERSCORE_STR = '_'
+COMMA_WITH_SPACE_STR = COMMA_STR + SPACE_STR
+EQUAL_WITH_SPACE_STR = SPACE_STR + EQUAL_STR + SPACE_STR
+COMMA_WITH_SPACE_AND_NEW_LINE_STR = COMMA_WITH_SPACE_STR + NEW_LINE_STR
+
+PROBLEM_TYPE_LIST = [
+    ("01", "Noise"),
+    ("02", "Hygiene"),
+    ("03", "Boundary Invasion"),
+    ("04", "Harassment"),
+    ("05", "Crime"),
+    ("99", "Other"),
+]
+
+ACTION_TYPE_CREATE = "CREATE"
+ACTION_TYPE_READ = "READ"
+ACTION_TYPE_UPDATE = "UPDATE"
+ACTION_TYPE_DELETE = "DELETE"
+
+DURATION_SEPARATOR = " - "
+SYSTEM_MAINTENANCE_START = "2099/01/01 12:00:00"
+SYSTEM_MAINTENANCE_END = "2099/01/01 24:00:00"
+SYSTEM_MAINTENANCE_TIME = SYSTEM_MAINTENANCE_START + DURATION_SEPARATOR + SYSTEM_MAINTENANCE_END
+
+# ==================================================
+# FUNCTION(PAGE) NAME
+# ==================================================
+PAGE_NAME_PREFIX = MAIN_APP_NAME + ':'
+TEMPLATE_NAME_PREFIX = MAIN_APP_NAME + '/'
+TEMPLATE_NAME_SUFFIX = '.html'
+MODAL_TEMPLATE_PREFIX = 'modal'
+
+WELCOME_URL_NAME = "welcome"
+WELCOME_PAGE_NAME = PAGE_NAME_PREFIX + WELCOME_URL_NAME
+WELCOME_TEMPLATE_NAME = TEMPLATE_NAME_PREFIX + WELCOME_URL_NAME + TEMPLATE_NAME_SUFFIX
+
+HOME_URL_NAME = "home"
+HOME_PAGE_NAME = PAGE_NAME_PREFIX + HOME_URL_NAME
+HOME_TEMPLATE_NAME = TEMPLATE_NAME_PREFIX + HOME_URL_NAME + TEMPLATE_NAME_SUFFIX
+
+REPORT_SEARCH_URL_NAME = "report_search"
+REPORT_SEARCH_PAGE_NAME = PAGE_NAME_PREFIX + REPORT_SEARCH_URL_NAME
+REPORT_SEARCH_TEMPLATE_NAME = TEMPLATE_NAME_PREFIX + REPORT_SEARCH_URL_NAME + TEMPLATE_NAME_SUFFIX
+
+REPORT_MY_REPORTS_URL_NAME = "report_my_reports"
+REPORT_MY_REPORTS_PAGE_NAME = PAGE_NAME_PREFIX + REPORT_MY_REPORTS_URL_NAME
+REPORT_MY_REPORTS_TEMPLATE_NAME = TEMPLATE_NAME_PREFIX + REPORT_MY_REPORTS_URL_NAME + TEMPLATE_NAME_SUFFIX
+
+REPORT_CREATE_URL_NAME = "report_create"
+REPORT_CREATE_PAGE_NAME = PAGE_NAME_PREFIX + REPORT_CREATE_URL_NAME
+REPORT_CREATE_DETAIL_TEMPLATE_NAME = TEMPLATE_NAME_PREFIX + "report" + TEMPLATE_NAME_SUFFIX
+
+REPORT_DETAIL_URL_NAME = "report_detail"
+REPORT_DETAIL_PAGE_NAME = PAGE_NAME_PREFIX + REPORT_DETAIL_URL_NAME
+
+REPORT_DELETE_URL_NAME = "report_delete"
+REPORT_DELETE_PAGE_NAME = PAGE_NAME_PREFIX + REPORT_DELETE_URL_NAME
+REPORT_DELETE_MODAL_TEMPLATE_NAME = \
+    TEMPLATE_NAME_PREFIX + MODAL_TEMPLATE_PREFIX + REPORT_DELETE_URL_NAME + TEMPLATE_NAME_SUFFIX
+
+# ==================================================
+# ==================================================
+# COLUMNS/FIELDS NAME
+# ==================================================
+# ----- COMMON COLUMNS/FIELDS NAME LIST -----
+# verbose names for labels
+CREATED_BY_VERBOSE_NAME = "Created User (ID)"
+UPDATED_BY_VERBOSE_NAME = "Updated User (ID)"
+DELETED_BY_VERBOSE_NAME = "Deleted User (ID)"
+RECORD_UPDATED_BY_VERBOSE_NAME = "Record Updated User (ID)"
+CREATED_AT_VERBOSE_NAME = "Created at"
+UPDATED_AT_VERBOSE_NAME = "Updated at"
+DELETED_AT_VERBOSE_NAME = "Deleted at"
+RECORD_UPDATED_AT_VERBOSE_NAME = "Record Updated at"
+DEL_FLG_VERBOSE_NAME = "Deleted Flg"
+TEST_FLG_VERBOSE_NAME = "Test Flg"
+
+# suffixes for foreign key field's related names
+CREATED_BY_RELATED_NAME_SUFFIX = "_created_by"
+UPDATED_BY_RELATED_NAME_SUFFIX = "_updated_by"
+DELETED_BY_RELATED_NAME_SUFFIX = "_deleted_by"
+RECORD_UPDATED_BY_RELATED_NAME_SUFFIX = "_record_updated_by"
+
+# variable names for models
+REPORT_MODEL_VAR_NAME = "report"
+TOWN_CITY_BOROUGH_NAME_LONDON_OPTION_LIST_MODEL_VAR_NAME = "town_city_borough_name_london_option_list"
+STATION_LONDON_OPTION_LIST_MODEL_VAR_NAME = "station_london_option_list"
+
+# ----------
+# ----- OTHER COLUMNS/FIELDS NAME LIST -----
+TMP_LIST_NO_TABLE_HEADER_NAME = "#"
+REPORT_ID_DISPLAY_NAME = "Report No."
+
+POSTCODE_VERBOSE_NAME = "Postcode"
+TOWN_CITY_BOROUGH_NAME = "Town/City/Borough Name"
+ADDRESS_LINE_VERBOSE_NAME = "Address Line"
+NEAREST_STATION_VERBOSE_NAME = "Nearest Station"
+COUNTY_VERBOSE_NAME = "County"
+PROBLEM_TYPE_VERBOSE_NAME = "Problem Type"
+PROBLEM_HAPPENED_DATE_VERBOSE_NAME = "Problem Happened Date"
+TITLE_VERBOSE_NAME = "Title"
+DETAIL_VERBOSE_NAME = "Detail"
+
+# ----------
+
+# ----- SETTINGS FOR DJANGO ADMIN -----
+LIST_PER_PAGE_FOR_DB_CONST_OPTION_LIST = 1000
+SAVE_ON_TOP_FOR_DB_CONST_OPTION_LIST = True
+SAVE_AS_FOR_DB_CONST_OPTION_LIST = True
+LIST_DISPLAY_FIELDS_FOR_DB_CONST_OPTION_LIST = [
+    "key",
+    "value",
+    "created_by",
+    "updated_by",
+    "deleted_by",
+    "created_at",
+    "updated_at",
+    "deleted_at",
+    "del_flg",
+    "record_updated_by",
+    "record_updated_at",
+]
+DATE_HIERARCHY_FOR_DB_CONST_OPTION_LIST = "created_at"
+SEARCH_FIELDS_FOR_DB_CONST_OPTION_LIST = ('key', 'value')
+LIST_FILTER_FOR_DB_CONST_OPTION_LIST = (
+    'del_flg',
+)
+SORTABLE_BY_FOR_DB_CONST_OPTION_LIST = LIST_DISPLAY_FIELDS_FOR_DB_CONST_OPTION_LIST
+READONLY_FIELDS_FOR_DB_CONST_OPTION_LIST = [
+    'created_at',
+    'record_updated_at',
+]
+
+# ----------
+# ==================================================
+# ==================================================
+# !!!IMPORTANT!!!:
+#  DB CONST SETTINGS
+#  Before adding new DB constants, check comments in models.py, apps.py, create_db_const_file.py
+# ==================================================
+
+
+# !!!IMPORTANT!!!:
+#  DB_CONST_TABLE_NAMES is only callable from create_db_const_file.py.
+#  DB_CONST_TABLE_NAMES_DICT is only callable from create_fixture_file_from_current_db_const.py
+#  Add table names ("mainapp_{model name in lower case}") of DB const (option list)
+DB_CONST_MODEL_LOWER_CAPITAL_NAME_STATION_LONDON = "stationlondon"
+DB_CONST_TABLE_NAME_STATION_LONDON = \
+    MAIN_APP_NAME + UNDERSCORE_STR + DB_CONST_MODEL_LOWER_CAPITAL_NAME_STATION_LONDON
+DB_CONST_MODEL_LOWER_CAPITAL_NAME_TOWN_CITY_BOROUGH_NAME_LONDON = "towncityboroughnamelondon"
+DB_CONST_TABLE_NAME_TOWN_CITY_BOROUGH_NAME_LONDON = \
+    MAIN_APP_NAME + UNDERSCORE_STR + DB_CONST_MODEL_LOWER_CAPITAL_NAME_TOWN_CITY_BOROUGH_NAME_LONDON
+# (Add next db constant model lower capital without underscore name here)
+DB_CONST_TABLE_NAMES_DICT = {
+    DB_CONST_TABLE_NAME_TOWN_CITY_BOROUGH_NAME_LONDON: db_const.TOWN_CITY_BOROUGH_NAME_LONDON_OPTION_LIST,
+    DB_CONST_TABLE_NAME_STATION_LONDON: db_const.STATION_LONDON_OPTION_LIST,
+    # (Add next db constant table name here)
+}
+DB_CONST_TABLE_NAMES = DB_CONST_TABLE_NAMES_DICT.keys()
+# ==================================================

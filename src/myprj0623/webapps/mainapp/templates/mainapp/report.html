@@ -1,0 +1,20 @@
+{# ===== Import ===== #}
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{# ========== #}
+
+{# ***** Override title ***** #}
+{% block title %}{% if is_detail == True %}MRSS Report Detail{% else %}MRSS Create Report{% endif %}{% endblock %}
+{# ********** #}
+
+{# ***** Override content ***** #}
+{% block content %}
+<h1>{% if is_detail == True %}Report Detail{% else %}Create a New Report{% endif %}</h1>
+<div class="ms-4 mt-4">
+  {% crispy report_form %}
+  {% if target_report.id != null %}{% if request.user.is_superuser or request.user.id == target_report.created_by.id %}
+  {% include 'mainapp/fragments/modal_report_delete.html' with report_id=target_report.id %}
+  {% endif %}{% endif %}
+</div>
+{% endblock %}
+{# ********** #}
