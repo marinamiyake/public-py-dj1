@@ -1,0 +1,4 @@
+/.env
+/db.sqlite3
+/webapps/mainapp/fixture/
+/webapps/mainapp/constants/db_const.py
