@@ -130,8 +130,7 @@ See "myprj0623 > requirements.txt"
 3. Get clone URL, enter the URL into PyCharm's modal, also select your local directory, and "Apply."
 4. Copy "src/myprj0623/.env_local" and create ".env" to the same directory.
 5. Open terminal in your PyCharm.
-6. Install Django and all libraries in [Requirement](#Requirement) with the <br>
-   following commands:
+6. Install Django and all libraries in [Requirement](#Requirement) with the following commands:
 
 ```bash
 pip install Django==4.1.3
